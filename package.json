@@ -1,0 +1,104 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
+  "name": "screen-brightness",
+  "title": "Screen Brightness",
+  "description": "Control the brightness of external monitors over DDC/CI using ddcutil.",
+  "categories": [
+    "System"
+  ],
+  "keywords": [
+    "brightness",
+    "monitor",
+    "display",
+    "screen",
+    "ddc",
+    "ddcutil",
+    "dim"
+  ],
+  "platforms": [
+    "Linux"
+  ],
+  "license": "MIT",
+  "author": "lbug",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbug/vicinae-screen-brightness"
+  },
+  "version": "0.1.0",
+  "contributors": [],
+  "pastContributors": [],
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "brightness",
+      "title": "Screen Brightness",
+      "subtitle": "Screen Brightness",
+      "description": "List connected monitors and adjust their brightness individually or together.",
+      "mode": "view"
+    },
+    {
+      "name": "brightness-up",
+      "title": "Brightness Up",
+      "subtitle": "Screen Brightness",
+      "description": "Increase the brightness of all monitors by one step.",
+      "mode": "no-view"
+    },
+    {
+      "name": "brightness-down",
+      "title": "Brightness Down",
+      "subtitle": "Screen Brightness",
+      "description": "Decrease the brightness of all monitors by one step.",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "step",
+      "title": "Step size",
+      "description": "How many percentage points Brightness Up/Down and the step actions change the brightness.",
+      "type": "dropdown",
+      "required": false,
+      "default": "10",
+      "data": [
+        {
+          "title": "5%",
+          "value": "5"
+        },
+        {
+          "title": "10%",
+          "value": "10"
+        },
+        {
+          "title": "20%",
+          "value": "20"
+        },
+        {
+          "title": "25%",
+          "value": "25"
+        }
+      ]
+    },
+    {
+      "name": "ddcutilPath",
+      "title": "ddcutil binary",
+      "description": "Path to the ddcutil binary.",
+      "type": "textfield",
+      "required": false,
+      "default": "ddcutil",
+      "placeholder": "ddcutil"
+    }
+  ],
+  "scripts": {
+    "build": "vici build",
+    "dev": "vici develop",
+    "lint": "vici lint"
+  },
+  "dependencies": {
+    "@vicinae/api": "^0.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.2",
+    "vici": "^1.0.0"
+  }
+}
